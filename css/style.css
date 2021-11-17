@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 html{
   scroll-behavior: smooth;
 }
@@ -17,7 +16,8 @@ nav{
 
 .python{
   height: 200px;
-=======
+}
+
 .parallax-container {
   height: 800px;
 }
@@ -28,5 +28,3 @@ nav{
 
 .block{
   height: 600px;
->>>>>>> fe345edbd65ffa985c632946d31782f1c754b720
-}
