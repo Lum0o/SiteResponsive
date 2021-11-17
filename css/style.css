@@ -1,3 +1,11 @@
-.python{
-  height: 200px;
+.parallax-container {
+  height: 800px;
+}
+
+.parallax img{
+  width: 100%;
+}
+
+.block{
+  height: 600px;
 }
