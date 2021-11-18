@@ -31,3 +31,8 @@ nav{
 .block{
   height: 600px;
 }
+
+.dropdown1 {
+  border-radius: 50px;
+  padding: 30px 92px;
+}
