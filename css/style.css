@@ -13,7 +13,7 @@ body{
 nav{
   position: fixed;
   width: 100%;
-   z-index: 1;
+  z-index: 1;
 }
 
 .parallax-container {
@@ -33,4 +33,8 @@ nav{
   line-height:100px;
   width: 250px;
   margin-bottom: 50px;
+}
+
+.modal {
+  color: black;
 }
