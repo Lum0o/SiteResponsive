@@ -10,11 +10,6 @@ body{
 .brand-logo{
   margin-left: 20px;
 }
-nav{
-  position: fixed;
-  width: 100%;
-   z-index: 3;
-}
 
 .parallax-container {
   height: 800px;
@@ -33,4 +28,8 @@ nav{
   line-height:100px;
   width: 250px;
   margin-bottom: 50px;
+}
+
+.mt45{
+  margin-top: 45px;
 }
