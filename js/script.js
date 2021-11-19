@@ -3,4 +3,8 @@ $(document).ready(function(){
   $('.parallax').parallax();
   $('.collapsible').collapsible();
   $('.modal').modal();
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  });
 });

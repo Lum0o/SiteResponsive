@@ -38,3 +38,12 @@ nav{
 .collapsible-body p{
   font-size: 25px;
 }
+.mr20{
+  margin-right: 20px;
+}
+.block{
+  height: 75px;
+}
+.block h2{
+  text-align: center;
+}
