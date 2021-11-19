@@ -4,7 +4,6 @@ html{
 
 body{
   margin: 0;
-  background-color: black;
 
 }
 
@@ -20,4 +19,18 @@ nav{
 
 .mr20{
   margin-right: 20px;
+}
+
+.mt45{
+  margin-top: 45px;
+}
+.mt20{
+  margin-top: 20px;
+}
+.collapsible-header p{
+  text-align: center;
+  font-size: 25px;
+}
+.collapsible-body p{
+  font-size: 25px;
 }
