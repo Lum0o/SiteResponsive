@@ -47,3 +47,6 @@ nav{
 .block h2{
   text-align: center;
 }
+.block2{
+  display: flex;
+}
