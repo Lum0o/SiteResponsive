@@ -11,15 +11,11 @@ body{
   margin-left: 20px;
 }
 
+.mr20{
+  margin-right: 20px;
+}
 .parallax-container {
   height: 800px;
-}
-
-.parallax img{
-  width: 100%;
-}
-
-.block{
 }
 
 .block a{
