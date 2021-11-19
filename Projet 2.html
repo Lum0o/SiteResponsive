@@ -24,11 +24,41 @@
         <div id="modal1" class="modal">
           <div class="modal-content">
             <h4>Formulaire de contact</h4>
-            <p></p>
+            <p>Besoin de nous contacter? Aidez nous à vous identifier!</p>
           </div>
-          <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
-          </div>
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="first_name" type="text" class="validate">
+                  <label for="first_name">Nom</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="last_name" type="text" class="validate">
+                  <label for="last_name">Prénom</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" type="email" class="validate">
+                  <label for="email">Email</label>
+                  <div class="input-field col s6">
+                    <input id="observation" type="text" class="validate">
+                    <label for="observation">Renseignez votre remarque/problème ici:</label>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
         <div class="nav-content">
           <ul class="tabs tabs-transparent">
