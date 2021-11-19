@@ -17,6 +17,10 @@ nav{
    z-index: 1;
 }
 
+.modal {
+  color: black;
+}
+
 .mr20{
   margin-right: 20px;
 }
