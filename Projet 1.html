@@ -7,9 +7,12 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Oswald:wght@300;400&family=Teko:wght@600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -76,18 +79,25 @@
     <div class="python parallax"><img src="img/wallpaper-python.jpg"></div>
   </div>
 
+  <div class="block red lighten-2">
+    <h2 class="white-text">Les concepteurs du projet</h2>
+  </div>
+
   <div class="row mt20">
     <div class="col s10 offset-s1 m8 offset-m2 l4 offset-l1">
       <ul class="z-depth-1 collapsible">
         <li class="row">
           <div class="grey lighten-4 collapsible-header">
-            <div class="col l2 m3 s4">
+            <div class="col l1 m2 s3">
               <img src="img/guilian.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
             </div>
-            <div class="col l10 m9 s8">
+            <div class="col l19 m8 s7">
               <p class="black-text">
                 Guilian Pipart
               </p>
+            </div>
+            <div class="col l1 m1 s1">
+              <i class="material-icons">expand_more</i>
             </div>
           </div>
           <div class="grey lighten-4 collapsible-body">
@@ -127,40 +137,60 @@
     </div>
   </div>
 
-  <div class="block grey lighten-1">
+<div class="row">
+
+<div class="col l6 m6 s12">
+  <div class="block red lighten-2">
     <h2 class="white-text">Enjeux du projet</h2>
+    </div>
+
+    <div class="block2">
+      <p class="dark-text flow-text fontOswald">
+        × Comprendre comment rédiger un algorithme.</br>
+        × Comprendre comment interagir avec votre machine.</br>
+        × Éviter les mauvaises pratiques.</br>
+        × Avoir connaissance des bases pour être un bon programmeur.</p>
+    </div>
   </div>
-  <div class="block2 grey lighten-1">
-    <p class="white-text">-Comprendre comment rédiger un algorithme.</br>-Comprendre comment interagir avec votre machine.</br>-Éviter les mauvaises pratiques.</br>-Avoir connaissance des bases pour être un bon programmeur.</p>
+
+  <div class="col l6 m6 s12">
+    <div class="block red lighten-2">
+      <h2 class="white-text">Cahier des charges</h2>
+    </div>
+    <div class="block2">
+      <p class="dark-text flow-text fontOswald">
+        × L’ordinateur choisit un nombre au hasard entre 1 et 100.</br>
+        × Vous devez essayer de trouver ce nombre.</br>
+        × Si vous êtes en dessous du nombre choisi par l’ordinateur, un message s’affiche : “C’est plus”.</br>
+        × Inversement si vous êtes au dessus du nombre, le message indique : “C’est moins”.</br>
+        × Vous avez 7 tentatives pour trouver le nombre.</br>
+        × Si vous ne trouvez pas, un message de défaite doit apparaître et le jeu propose au joueur de lancer une nouvelle partie ou non.</br>
+        × Si vous trouvez, un message de victoire doit apparaître et le jeu propose au joueur de lancer une nouvelle partie ou non.</p>
+    </div>
   </div>
-  <div class="block grey lighten-1">
-    <h3 class="white-text">Cahier des charges</h3>
-  </div>
-  <div class="block2 grey lighten-1">
-    <p class="white-text">-L’ordinateur choisit un nombre au hasard entre 1 et 100.</br>-Vous devez essayer de trouver ce nombre.</br>-Si vous êtes en dessous du nombre choisi par l’ordinateur, un message s’affiche : “C’est plus”.</br>-Inversement si vous êtes au dessus du nombre, le message indique : “C’est moins”.</br>-Vous avez 7 tentatives pour trouver le nombre.</br>-Si vous ne trouvez pas, un message de défaite doit apparaître et le jeu propose au joueur de lancer une nouvelle partie ou non.</br>-Si vous trouvez, un message de victoire doit apparaître et le jeu propose au joueur de lancer une nouvelle partie ou non.</p>
+
   </div>
   <div class="block red lighten-2">
-    <h2 class="white-text">Forme final du projet</h2>
+    <h2 class="white-text">Forme finale du projet</h2>
   </div>
 
   <div class="carousel carousel-slider center">
     <div class="carousel-fixed-item center">
     </div>
-    <div class="carousel-item red white-text" href="#one!">
-      <h2>First Panel</h2>
-      <p class="white-text">This is your first panel</p>
+    <div class="carousel-item dark-text" href="#one!">
+      <h2>Un jeu remplie de bonus !</h2>
+      <p class="dark-text">Plusieurs joueurs, difficultés et rounds</p>
+      <img src="img/Capturebonuspy.jpg" alt="">
     </div>
-    <div class="carousel-item amber white-text" href="#two!">
-      <h2>Second Panel</h2>
-      <p class="white-text">This is your second panel</p>
+    <div class="carousel-item dark-text" href="#two!">
+      <h2>Interface visuel et gestion d'égalité</h2>
+      <p class="dark-text">jeu visuel et tableau des scores</p>
+      <img src="img/CaptureEndpy.jpg" alt="">
     </div>
-    <div class="carousel-item green white-text" href="#three!">
-      <h2>Third Panel</h2>
-      <p class="white-text">This is your third panel</p>
-    </div>
-    <div class="carousel-item blue white-text" href="#four!">
-      <h2>Fourth Panel</h2>
-      <p class="white-text">This is your fourth panel</p>
+    <div class="carousel-item dark-text" href="#three!">
+      <h2>Un code propre et optimisé !</h2>
+      <p class="dark-dark">Partition clair et description du programme</p>
+      <img src="img/CaptureCodepy.jpg" alt="">
     </div>
   </div>
 

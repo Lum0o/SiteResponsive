@@ -4,7 +4,6 @@ html{
 
 body{
   margin: 0;
-
 }
 
 .brand-logo{
@@ -44,7 +43,7 @@ nav{
 .block h2{
   text-align: center;
   padding: 40px;
-  margin-bottom: 0;
+  margin-top: 0;
 }
 .block h3{
   text-align: center;
@@ -52,10 +51,10 @@ nav{
   margin-bottom: 0;
   margin: auto;
 }
-.block2{
-  display: flex;
-}
 .ml700 p{
   text-align: center;
   padding: 20px
+}
+.fontOswald{
+  font-family: 'Oswald', sans-serif;
 }
