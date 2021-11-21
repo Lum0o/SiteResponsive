@@ -36,4 +36,5 @@ body{
 .alder{
   position: fixed;
   bottom: -500px;
+  z-index: 5;
 }
