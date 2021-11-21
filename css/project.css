@@ -58,3 +58,7 @@ nav{
 .fontOswald{
   font-family: 'Oswald', sans-serif;
 }
+.alder{
+  position: fixed;
+  bottom: -500px;
+}
