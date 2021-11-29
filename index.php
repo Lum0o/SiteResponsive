@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -38,40 +35,31 @@ session_start();
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
           <div class="modal-content">
-            <h4>Connexion</h4>
-            <p>Vous pouvez accèder à votre compte ici! Vous êtes nouveaux? Créez votre compte dès maintenat!</p>
+            <h4>Inscription</h4>
+            <p>Bienvenue! Vous êtes nouveaux? Créez votre compte dès maintenat!</p>
           </div>
           <div class="row">
-            <form class="col s12">
+            <form class="col s12" method="post" action="signup.php">
               <div class="row">
                 <div class="input-field col s6">
-                  <input id="first_name" type="text" class="validate">
-                  <label for="first_name">Nom</label>
+                  <input id="first_name" name="first_name" type="text" class="validate">
+                  <label for="first_name">Prénom</label>
                 </div>
                 <div class="input-field col s6">
-                  <input id="last_name" type="text" class="validate">
-                  <label for="last_name">Prénom</label>
+                  <input id="last_name" name="last_name" type="text" class="validate">
+                  <label for="last_name">Nom</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
+                  <input id="email" name="email" type="email" class="validate">
                   <label for="email">Email</label>
                   <div class="input-field col s6">
-                    <input id="password" type="password" class="validate">
+                    <input id="password" name="password" type="password" class="validate">
                     <label for="password">Mot de passe</label>
                   </div>
                   <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
-                    <?php
-                    require 'connexion.php';
-                    $db_username = 'root';
-                    $db_password = 'mot_de_passe_bdd';
-                    $db_name     = 'nom_bdd';
-                    $db_host     = 'localhost';
-                    $db = mysqli_connect($db_host, $db_username, $db_password,$db_name)
-                    or die('could not connect to database');
-                    ?>
                   </div>
                 </div>
               </div>
