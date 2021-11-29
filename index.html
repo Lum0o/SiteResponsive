@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -52,15 +49,6 @@ session_start();
                   </div>
                   <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
-                    <?php
-                    require 'connexion.php';
-                    $db_username = 'root';
-                    $db_password = 'mot_de_passe_bdd';
-                    $db_name     = 'nom_bdd';
-                    $db_host     = 'localhost';
-                    $db = mysqli_connect($db_host, $db_username, $db_password,$db_name)
-                    or die('could not connect to database');
-                    ?>
                   </div>
                 </div>
               </div>
