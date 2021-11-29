@@ -13,6 +13,17 @@
 </head>
 
 <body>
+
+  <?php
+  $pdo = new PDO(
+    'mysql:host=localhost;dbname=site_project;',
+    'root',
+    '',
+    array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
+  );
+  $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
+  ?>
+
   <div class="navbar-fixed">
     <nav class="nav-extended">
       <div class="nav-wrapper">
@@ -57,57 +68,40 @@
         </div>
         <div class="nav-content">
           <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="index.html">Home</a></li>
-            <li class="tab"><a href="Projet 1.html">Projet 1</a></li>
-            <li class="tab"><a href="Projet 2.html">Projet 2</a></li>
-            <li class="tab"><a href="Projet 3.html">Projet 3</a></li>
+            <li class="tab"><a href="index.php">Home</a></li>
+            <li class="tab"><a href="Projet 1.php">Projet 1</a></li>
+            <li class="tab"><a href="Projet 2.php">Projet 2</a></li>
+            <li class="tab"><a href="Projet 3.php">Projet 3</a></li>
           </ul>
         </div>
       </nav>
     </div>
 
+    <?php
+    $sql = "SELECT * FROM projet"; //number of project
+    $pre = $pdo->prepare($sql);
+    $pre->execute();
+    $projects = $pre->fetchAll(PDO::FETCH_ASSOC);
 
-    <div class="l12 m12 s12 parallax-container mt45">
-      <div class="python parallax"><img src="img/wallpaper-python.jpg" alt="Projet wallpaper code python"></div>
-    </div>
+    foreach($projects as $proj){
+      ?>
+      <div class="l12 m12 s12 parallax-container mt45">
+        <div class="python parallax"><img src="<?php echo $proj['img_background']; ?>" alt="<?php echo $proj['imgalt']; ?>"></div>
+      </div>
 
-    <div class="l12 m12 s12 block row">
-      <div class="col l5 offset-l1 m6 offset-m1 s10 offset-s1">
-        <h2 class="red-text lighten-2"> PYTHON - projet juste prix </h2>
-        <p class="flow-text"> Projet réalisé par Guilian Pipart et Alexandre Gouveia encadré par Antoine Di Roberto</p>
+      <div class="l12 m12 s12 block row">
+        <div class="col l5 offset-l1 m6 offset-m1 s10 offset-s1">
+          <h2 class="red-text lighten-2"> <?php echo $proj['titre']; ?> </h2>
+          <p class="flow-text"> <?php echo $proj['description']; ?> </p>
+        </div>
+        <div class="col l2 offset-l2 m2 offset-1 s4 offset-s3">
+          <a class="waves-effect waves-light btn red lighten-2" href="<?php echo $proj['link']; ?>"> <?php echo $proj['Navbar']; ?></a>
+        </div>
       </div>
-      <div class="col l2 offset-l2 m2 offset-1 s4 offset-s3">
-        <a class="waves-effect waves-light btn red lighten-2" href="Projet 1.html">Projet 1</a>
-      </div>
-    </div>
 
-    <div class="l12 m12 s12 parallax-container">
-      <div class="c parallax"><img src="img/wallpaper-c.jpg" alt="Projet wallpaper code c"></div>
-    </div>
-
-    <div class="l12 m12 s12 block row">
-      <div class="col l5 offset-l1 m6 offset-m1 s10 offset-s1">
-        <h2 class="red-text lighten-2"> C et BASH - projet puissance 4 </h2>
-        <p class="flow-text"> Projet réalisé par Guilian Pipart et Hugo Maestracci encadré par Nicolas Bercher </p>
-      </div>
-      <div class="col l2 offset-l2 m2 offset-1 s4 offset-s3">
-        <a class="waves-effect waves-light btn red lighten-2" href="Projet 2.html">Projet 2</a>
-      </div>
-    </div>
-
-    <div class="l12 m12 s12 parallax-container">
-      <div class="site parallax"><img src="img/wallpaper-site.jpg" alt="Projet wallpaper code html"></div>
-    </div>
-
-    <div class="l12 m12 s12 block row">
-      <div class="col l5 offset-l1 m6 offset-m1 s10 offset-s1">
-        <h2 class="red-text lighten-2"> HTML et CSS - site basique </h2>
-        <p class="flow-text"> Projet réalisé par Fol Killian et Emile Ricordel<br> encadré par Antoine Di Roberto </p>
-      </div>
-      <div class="col l2 offset-l2 m2 offset-1 s4 offset-s3">
-        <a class="waves-effect waves-light btn red lighten-2" href="Projet 3.html">Projet 3</a>
-      </div>
-    </div>
+      <?php
+    }
+    ?>
     <footer class="page-footer">
       <div class="container">
         <div class="row">
