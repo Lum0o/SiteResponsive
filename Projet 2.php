@@ -13,22 +13,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Oswald:wght@300;400&family=Teko:wght@600&display=swap" rel="stylesheet">
-  <title> Portofolio - Projet juste prix </title>
+  <title> Portofolio - Projet puissance 4 </title>
 </head>
 
 <body>
   <div class="navbar-fixed">
     <nav class="nav-extended">
       <div class="nav-wrapper">
-        <h1 class="brand-logo">Project n°1</h1>
+        <h1 class="brand-logo">Project n°2</h1>
         <!-- Modal Trigger -->
-        <a class="right waves-effect waves-light button modal-trigger mr20" href="#modal1"><i class="material-icons">chat</i></a>
+        <a class="right waves-effect waves-light button modal-trigger mr20" href="#modal1"><i class="material-icons">account_circle</i></a>
+
 
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
           <div class="modal-content">
-            <h4>Formulaire de contact</h4>
-            <p>Besoin de nous contacter? Aidez nous à vous identifier!</p>
+            <h4>Connexion</h4>
+            <p>Vous pouvez accèder à votre compte ici! Vous êtes nouveaux? Créez votre compte dès maintenat!</p>
           </div>
           <div class="row">
             <form class="col s12">
@@ -47,8 +48,8 @@
                   <input id="email" type="email" class="validate">
                   <label for="email">Email</label>
                   <div class="input-field col s6">
-                    <input id="observation" type="text" class="validate">
-                    <label for="observation">Renseignez votre remarque/problème ici:</label>
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Mot de passe</label>
                   </div>
                   <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
@@ -71,7 +72,7 @@
   </div>
 
   <div class="l12 m12 s12 parallax-container mt45">
-    <div class="python parallax"><img src="img/wallpaper-python.jpg" alt="Projet wallpaper code python"></div>
+    <div class="c parallax"><img src="img/wallpaper-c.jpg" alt="Projet wallpaper code c"></div>
   </div>
 
   <div class="block red lighten-2">
@@ -83,10 +84,10 @@
       <ul class="z-depth-1 collapsible">
         <li class="row">
           <div class="grey lighten-4 collapsible-header">
-            <div class="col l1 m2 s3">
+            <div class="col l2 m3 s4">
               <img src="img/guilian.jpg" alt="guilian pp projet" class="circle responsive-img"> <!-- notice the "circle" class -->
             </div>
-            <div class="col l11 m10 s9">
+            <div class="col l10 m9 s8">
               <p class="black-text">
                 Guilian Pipart
               </p>
@@ -103,25 +104,29 @@
         </li>
       </ul>
     </div>
+
+
+
     <div class="col s10 offset-s1 m8 offset-m2 l4 offset-l2">
       <ul class="z-depth-1 collapsible">
         <li class="row">
           <div class="grey lighten-4 collapsible-header">
             <div class="col l2 m3 s4">
-              <img src="img/alex.png" alt="Alex pp projet" class="circle responsive-img"> <!-- notice the "circle" class -->
+              <img src="img/hugo.jpg" alt="Hugo pp projet" class="circle responsive-img"> <!-- notice the "circle" class -->
             </div>
             <div class="col l10 m9 s8">
               <p class="black-text">
-                Alexandre Gouveia
+                Hugo Maestracci
               </p>
             </div>
           </div>
           <div class="grey lighten-4 collapsible-body">
             <p>
-              - 21 ans<br>
-              - Bac S<br>
-              - 2 ans Fac Math/Info<br>
-              - Programmation Python et C<br>
+              - 21 ans <br>
+              - STI2D SIN <br>
+              - Licence Informatique <br>
+              - Programmation UNITY <br>
+              - Game Jam <br>
             </p>
           </div>
         </li>
@@ -129,60 +134,60 @@
     </div>
   </div>
 
-<div class="row">
+  <div class="row">
 
-<div class="col l6 m6 s12">
-  <div class="block red lighten-2">
-    <h2 class="white-text">Enjeux du projet</h2>
+    <div class="col l6 m6 s12">
+      <div class="block red lighten-2">
+        <h2 class="white-text">Enjeux du projet</h2>
+      </div>
+      <div class="block2">
+        <p class="dark-text flow-text fontOswald">
+          × Apprentissage du Langage C sous environnement Linux.<br>
+          × Découverte de l’outil de versionnement de code Git et de Github.com.<br>
+          × Développement de deux jeux en Langage C: “Puissance 4” (mode texte).
+        </p>
+      </div>
     </div>
 
-    <div class="block2">
-      <p class="dark-text flow-text fontOswald">
-        × Comprendre comment rédiger un algorithme.<br>
-        × Comprendre comment interagir avec votre machine.<br>
-        × Éviter les mauvaises pratiques.<br>
-        × Avoir connaissance des bases pour être un bon programmeur.</p>
+    <div class="col l6 m6 s12">
+      <div class="block red lighten-2">
+        <h2 class="white-text">Cahier des charges</h2>
+      </div>
+      <div class="block2">
+        <p class="dark-text flow-text fontOswald">
+          × Le jeu est-il jouable, conforme aux demandes et sans bugs ?<br>
+          × Le jeu textuel a-t-il un code lisible, propre et optimisé ?<br>
+          × Utilisation et maîtrise des divers outils pour la création de votre jeu : bash, make, compilateur, Langage C.
+        </p>
+      </div>
     </div>
-  </div>
-
-  <div class="col l6 m6 s12">
-    <div class="block red lighten-2">
-      <h2 class="white-text">Cahier des charges</h2>
-    </div>
-    <div class="block2">
-      <p class="dark-text flow-text fontOswald">
-        × L’ordinateur choisit un nombre au hasard entre 1 et 100.<br>
-        × Vous devez essayer de trouver ce nombre.<br>
-        × Si vous êtes en dessous du nombre choisi par l’ordinateur, un message s’affiche : “C’est plus”.<br>
-        × Inversement si vous êtes au dessus du nombre, le message indique : “C’est moins”.<br>
-        × Vous avez 7 tentatives pour trouver le nombre.<br>
-        × Si vous ne trouvez pas, un message de défaite doit apparaître et le jeu propose au joueur de lancer une nouvelle partie ou non.<br>
-        × Si vous trouvez, un message de victoire doit apparaître et le jeu propose au joueur de lancer une nouvelle partie ou non.</p>
-    </div>
-  </div>
-
   </div>
   <div class="block red lighten-2">
-    <h2 class="white-text">Forme finale du projet</h2>
+    <h2 class="white-text">Forme final du projet</h2>
   </div>
 
   <div class="carousel carousel-slider center">
     <div class="carousel-fixed-item center">
     </div>
     <div class="carousel-item dark-text" href="#one!">
-      <h2>Un jeu remplie de bonus !</h2>
-      <p class="dark-text">Plusieurs joueurs, difficultés et rounds</p>
-      <img src="img/Capturebonuspy.jpg" alt="projet">
+      <h2>Un jeu amusant et visuel !</h2>
+      <p class="dark-text">possibilité de jouer à plus que 2 et de changer la taille du tableau !</p>
+      <img src="img/CaptureBonusc.jpg" alt="Projet 2 Screen Bonus">
     </div>
     <div class="carousel-item dark-text" href="#two!">
-      <h2>Interface visuel et gestion d'égalité</h2>
-      <p class="dark-text">jeu visuel et tableau des scores</p>
-      <img src="img/CaptureEndpy.jpg" alt="projet">
+      <h2>Le main</h2>
+      <p class="dark-text">Un main court pour faciliter la compréhension</p>
+      <img src="img/CaptureMainc.jpg" alt="Projet 2 Screen main c">
     </div>
     <div class="carousel-item dark-text" href="#three!">
-      <h2>Un code propre et optimisé !</h2>
-      <p class="dark-dark">Partition clair et description du programme</p>
-      <img src="img/CaptureCodepy.jpg" alt="projet">
+      <h2>Détection de Victoire</h2>
+      <p class="dark-text">Une partie difficile du projet qui gère aussi les égalités</p>
+      <img src="img/CaptureVictoryc.jpg" alt="Projet 2 Screen Victoire">
+    </div>
+    <div class="carousel-item dark-text" href="#four!">
+      <h2>Code clair</h2>
+      <p class="dark-text">Un code commenté et bien optimisé / agencé</p>
+      <img src="img/Captureinfoc.jpg" alt="Projet 2 Screen Code c">
     </div>
   </div>
 
@@ -190,7 +195,7 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Merci d'avoir porter attention à ce projet</h5>
+          <h5 class="white-text">Merci de porter attention à ce projet</h5>
           <p class="grey-text text-lighten-4">Il à été réalisé par Fol Killian et Pipart Guilian</p>
         </div>
         <div class="col l4 offset-l2 s12">
@@ -203,11 +208,47 @@
         </div>
       </div>
     </div>
-
     <div class="footer-copyright">
       <div class="container">
         © 2021 Copyright Text
         <a class="grey-text text-lighten-4 right waves-effect waves-teal btn-flat" href="#!" Onclick="alder()" id="secret">;)</a>
+      </div>
+      <!-- Modal Trigger -->
+      <a class="right waves-effect waves-light button modal-trigger mr20" href="#modal2"><i class="material-icons">chat</i></a>
+
+      <!-- Modal Structure -->
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <h4>Formulaire de contact</h4>
+          <p>Besoin de nous contacter? Aidez nous à vous identifier!</p>
+        </div>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="first_name" type="text" class="validate">
+                <label for="first_name">Nom</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate">
+                <label for="last_name">Prénom</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+                <div class="input-field col s6">
+                  <input id="observation" type="text" class="validate">
+                  <label for="observation">Renseignez votre remarque/problème ici:</label>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </footer>
