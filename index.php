@@ -22,6 +22,53 @@
 
 
 
+<<<<<<< HEAD
+=======
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Inscription</h4>
+            <p>Bienvenue! Vous êtes nouveaux? Créez votre compte dès maintenat!</p>
+          </div>
+          <div class="row">
+            <form class="col s12" method="post" action="signup.php">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="first_name" name="first_name" type="text" class="validate">
+                  <label for="first_name">Prénom</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="last_name" name="last_name" type="text" class="validate">
+                  <label for="last_name">Nom</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" name="email" type="email" class="validate">
+                  <label for="email">Email</label>
+                  <div class="input-field col s6">
+                    <input id="password" name="password" type="password" class="validate">
+                    <label for="password">Mot de passe</label>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="nav-content">
+          <ul class="tabs tabs-transparent">
+            <li class="tab"><a href="index.php">Home</a></li>
+            <li class="tab"><a href="Projet 1.php">Projet 1</a></li>
+            <li class="tab"><a href="Projet 2.php">Projet 2</a></li>
+            <li class="tab"><a href="Projet 3.php">Projet 3</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+>>>>>>> cc7bb1e57812446444771df0073aee7c20ade8f2
 
     <?php
     $sql = "SELECT * FROM projet"; //number of project
