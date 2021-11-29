@@ -13,14 +13,41 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Oswald:wght@300;400&family=Teko:wght@600&display=swap" rel="stylesheet">
-  <title> Portofolio - Projet puissance 4 </title>
+  <?php
+  $pdo = new PDO(
+    'mysql:host=localhost;dbname=site_project;',
+    'root',
+    '',
+    array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
+  );
+  $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
+
+  $sql = "SELECT * FROM projet WHERE id = 2";
+  $pre = $pdo->prepare($sql);
+  $pre->execute();
+  $project = $pre->fetchAll(PDO::FETCH_ASSOC);
+  foreach($project as $proj){
+
+  $sql = "SELECT * FROM concepteurs WHERE projet_id = 2";
+  $pre = $pdo->prepare($sql);
+  $pre->execute();
+  $programmers = $pre->fetchAll(PDO::FETCH_ASSOC);
+
+  $sql = "SELECT * FROM caroussel WHERE projet_id = 2";
+  $pre = $pdo->prepare($sql);
+  $pre->execute();
+  $caroussel = $pre->fetchAll(PDO::FETCH_ASSOC);
+  ?>
+
+  <title> <?php echo $proj['titre']; ?> </title>
 </head>
 
 <body>
+
   <div class="navbar-fixed">
     <nav class="nav-extended">
       <div class="nav-wrapper">
-        <h1 class="brand-logo">Project n°2</h1>
+        <h1 class="brand-logo"> <?php echo $proj['Navbar']; ?> </h1>
         <!-- Modal Trigger -->
         <a class="right waves-effect waves-light button modal-trigger mr20" href="#modal1"><i class="material-icons">account_circle</i></a>
 
@@ -61,10 +88,10 @@
         </div>
         <div class="nav-content">
           <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="index.html">Home</a></li>
-            <li class="tab"><a href="Projet 1.html">Projet 1</a></li>
-            <li class="tab"><a href="Projet 2.html">Projet 2</a></li>
-            <li class="tab"><a href="Projet 3.html">Projet 3</a></li>
+            <li class="tab"><a href="index.php">Home</a></li>
+            <li class="tab"><a href="Projet 1.php">Projet 1</a></li>
+            <li class="tab"><a href="Projet 2.php">Projet 2</a></li>
+            <li class="tab"><a href="Projet 3.php">Projet 3</a></li>
           </ul>
         </div>
       </div>
@@ -72,67 +99,43 @@
   </div>
 
   <div class="l12 m12 s12 parallax-container mt45">
-    <div class="c parallax"><img src="img/wallpaper-c.jpg" alt="Projet wallpaper code c"></div>
+    <div class="python parallax"><img src="<?php echo $proj['img_background']; ?>" alt="<?php echo $proj['imgalt']; ?>"></div>
   </div>
 
   <div class="block red lighten-2">
     <h2 class="white-text">Les concepteurs du projet</h2>
   </div>
 
-  <div class="row mt20">
-    <div class="col s10 offset-s1 m8 offset-m2 l4 offset-l1">
-      <ul class="z-depth-1 collapsible">
-        <li class="row">
-          <div class="grey lighten-4 collapsible-header">
-            <div class="col l2 m3 s4">
-              <img src="img/guilian.jpg" alt="guilian pp projet" class="circle responsive-img"> <!-- notice the "circle" class -->
+  <?php
+    foreach ($programmers as $prog) {
+    ?>
+
+    <div class="row mt20">
+      <div class="col s10 offset-s1 m8 offset-m2 l6">
+        <ul class="z-depth-1 collapsible">
+          <li class="row">
+            <div class="grey lighten-4 collapsible-header">
+              <div class="col l1 m2 s3">
+                <img src=" <?php echo $prog['img']; ?> " alt=" <?php echo $prog['imgalt']; ?> " class="circle responsive-img"> <!-- notice the "circle" class -->
+              </div>
+              <div class="col l11 m10 s9">
+                <p class="black-text">
+                  <?php echo $prog['header']; ?>
+                </p>
+              </div>
             </div>
-            <div class="col l10 m9 s8">
-              <p class="black-text">
-                Guilian Pipart
+            <div class="grey lighten-4 collapsible-body">
+              <p>
+                <?php echo $prog['description']; ?>
               </p>
             </div>
-          </div>
-          <div class="grey lighten-4 collapsible-body">
-            <p>
-              - 17 ans<br>
-              - Spécialité NSI<br>
-              - Programmation en Python<br>
-              - Création de site HTML/CSS/PHP<br>
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
+          </li>
+        </ul>
+      </div>
 
-
-
-    <div class="col s10 offset-s1 m8 offset-m2 l4 offset-l2">
-      <ul class="z-depth-1 collapsible">
-        <li class="row">
-          <div class="grey lighten-4 collapsible-header">
-            <div class="col l2 m3 s4">
-              <img src="img/hugo.jpg" alt="Hugo pp projet" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col l10 m9 s8">
-              <p class="black-text">
-                Hugo Maestracci
-              </p>
-            </div>
-          </div>
-          <div class="grey lighten-4 collapsible-body">
-            <p>
-              - 21 ans <br>
-              - STI2D SIN <br>
-              - Licence Informatique <br>
-              - Programmation UNITY <br>
-              - Game Jam <br>
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+    <?php
+    }
+   ?>
 
   <div class="row">
 
@@ -140,125 +143,144 @@
       <div class="block red lighten-2">
         <h2 class="white-text">Enjeux du projet</h2>
       </div>
+
       <div class="block2">
         <p class="dark-text flow-text fontOswald">
-          × Apprentissage du Langage C sous environnement Linux.<br>
-          × Découverte de l’outil de versionnement de code Git et de Github.com.<br>
-          × Développement de deux jeux en Langage C: “Puissance 4” (mode texte).
-        </p>
+          <?php echo $proj['enjeux']; ?>
+        </div>
       </div>
-    </div>
 
-    <div class="col l6 m6 s12">
+      <div class="col l6 m6 s12">
+        <div class="block red lighten-2">
+          <h2 class="white-text">Cahier des charges</h2>
+        </div>
+        <div class="block2">
+          <p class="dark-text flow-text fontOswald">
+            <?php echo $proj['cdc']; ?>
+          </p>
+          </div>
+        </div>
+
+      </div>
       <div class="block red lighten-2">
-        <h2 class="white-text">Cahier des charges</h2>
+        <h2 class="white-text">Forme finale du projet</h2>
       </div>
-      <div class="block2">
-        <p class="dark-text flow-text fontOswald">
-          × Le jeu est-il jouable, conforme aux demandes et sans bugs ?<br>
-          × Le jeu textuel a-t-il un code lisible, propre et optimisé ?<br>
-          × Utilisation et maîtrise des divers outils pour la création de votre jeu : bash, make, compilateur, Langage C.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="block red lighten-2">
-    <h2 class="white-text">Forme final du projet</h2>
-  </div>
 
-  <div class="carousel carousel-slider center">
-    <div class="carousel-fixed-item center">
-    </div>
-    <div class="carousel-item dark-text" href="#one!">
-      <h2>Un jeu amusant et visuel !</h2>
-      <p class="dark-text">possibilité de jouer à plus que 2 et de changer la taille du tableau !</p>
-      <img src="img/CaptureBonusc.jpg" alt="Projet 2 Screen Bonus">
-    </div>
-    <div class="carousel-item dark-text" href="#two!">
-      <h2>Le main</h2>
-      <p class="dark-text">Un main court pour faciliter la compréhension</p>
-      <img src="img/CaptureMainc.jpg" alt="Projet 2 Screen main c">
-    </div>
-    <div class="carousel-item dark-text" href="#three!">
-      <h2>Détection de Victoire</h2>
-      <p class="dark-text">Une partie difficile du projet qui gère aussi les égalités</p>
-      <img src="img/CaptureVictoryc.jpg" alt="Projet 2 Screen Victoire">
-    </div>
-    <div class="carousel-item dark-text" href="#four!">
-      <h2>Code clair</h2>
-      <p class="dark-text">Un code commenté et bien optimisé / agencé</p>
-      <img src="img/Captureinfoc.jpg" alt="Projet 2 Screen Code c">
-    </div>
-  </div>
+      <div class="carousel carousel-slider center">
+        <div class="carousel-fixed-item center">
+        </div>
+          <?php
+          $i=0;
+            foreach ($caroussel as $page) {
+              $i++;
+              $url="";
+              switch ($i) {
+                case 1:
+                $url="one";
+                break;
 
-  <footer class="page-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Merci de porter attention à ce projet</h5>
-          <p class="grey-text text-lighten-4">Il à été réalisé par Fol Killian et Pipart Guilian</p>
-        </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="https://materializecss.com/">Materialize</a></li>
-            <li><a class="grey-text text-lighten-3" href="https://jquery.com/">Jquery</a></li>
-            <li><a class="grey-text text-lighten-3" href="https://github.com/">GitHub</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-        © 2021 Copyright Text
-        <a class="grey-text text-lighten-4 right waves-effect waves-teal btn-flat" href="#!" Onclick="alder()" id="secret">;)</a>
-      </div>
-      <!-- Modal Trigger -->
-      <a class="right waves-effect waves-light button modal-trigger mr20" href="#modal2"><i class="material-icons">chat</i></a>
+                case 2:
+                $url="two";
+                break;
 
-      <!-- Modal Structure -->
-      <div id="modal2" class="modal">
-        <div class="modal-content">
-          <h4>Formulaire de contact</h4>
-          <p>Besoin de nous contacter? Aidez nous à vous identifier!</p>
+                case 3:
+                $url="three";
+                break;
+
+                case 4:
+                $url="four";
+                break;
+
+                case 5:
+                $url="five";
+                break;
+
+                default:
+                  $url = "one";
+                break;
+              }
+          ?>
+
+          <div class="carousel-item dark-text" href="#<?php echo $url ?>!">
+            <h2><?php echo $page['titre']; ?></h2>
+            <p class="dark-text"><?php echo $page['description']; ?></p>
+            <img src="<?php echo $page['img']; ?>" alt="<?php echo $page['imgalt']; ?>">
+          </div>
+
+          <?php
+            }
+          }
+          ?>
+      </div>
+      <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Merci d'avoir porter attention à ce projet</h5>
+              <p class="grey-text text-lighten-4">Il à été réalisé par Fol Killian et Pipart Guilian</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="https://materializecss.com/">Materialize</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://jquery.com/">Jquery</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://github.com/">GitHub</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="row">
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s6">
-                <input id="first_name" type="text" class="validate">
-                <label for="first_name">Nom</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="last_name" type="text" class="validate">
-                <label for="last_name">Prénom</label>
-              </div>
+
+        <div class="footer-copyright">
+          <div class="container">
+            © 2021 Copyright Text
+            <a class="grey-text text-lighten-4 right waves-effect waves-teal btn-flat" href="#!" Onclick="alder()" id="secret">;)</a>
+          </div>
+          <!-- Modal Trigger -->
+          <a class="right waves-effect waves-light button modal-trigger mr20" href="#modal2"><i class="material-icons">chat</i></a>
+
+          <!-- Modal Structure -->
+          <div id="modal2" class="modal">
+            <div class="modal-content">
+              <h4>Formulaire de contact</h4>
+              <p>Besoin de nous contacter? Aidez nous à vous identifier!</p>
             </div>
             <div class="row">
-              <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
-                <label for="email">Email</label>
-                <div class="input-field col s6">
-                  <input id="observation" type="text" class="validate">
-                  <label for="observation">Renseignez votre remarque/problème ici:</label>
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input id="first_name" type="text" class="validate">
+                    <label for="first_name">Nom</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Prénom</label>
+                  </div>
                 </div>
-                <div class="modal-footer">
-                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                    <div class="input-field col s6">
+                      <input id="observation" type="text" class="validate">
+                      <label for="observation">Renseignez votre remarque/problème ici:</label>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
-    </div>
-  </footer>
+      </footer>
 
-  <div class="alder" id="alderiate">
-    <img class="l12 m12 s12" src="img/alder.png" alt="alderiate projet">
-  </div>
-  <!--JavaScript at end of body for optimized loading-->
-  <script src="js/jquery.js"></script>
-  <script src="js/materialize.min.js"></script>
-  <script src="js/script.js"></script>
-</body>
-</html>
+      <div class="alder" id="alderiate">
+        <img class="l12 m12 s12" src="img/alder.png" alt="alderiate projet">
+      </div>
+      <!--JavaScript at end of body for optimized loading-->
+      <script src="js/jquery.js"></script>
+      <script src="js/materialize.min.js"></script>
+      <script src="js/script.js"></script>
+    </body>
+    </html>
