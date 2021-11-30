@@ -84,7 +84,7 @@
           </div>
           </div>
           <div class=" s12 modal-footer">
-            <a href="modifuser.php?id=<?php echo $user['id']; ?>" class="modal-close waves-effect waves-green btn-flat">Modifier</a>
+            <a type="submit" href="modifuser.php?id=<?php echo $user['id']; ?>" class="modal-close waves-effect waves-green btn-flat">Modifier</a>
             <a href="deluser.php?id=<?php echo $user['id']; ?>" class="modal-close waves-effect waves-red btn-flat">Supprimer</a>
           </div>
       </form>
