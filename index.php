@@ -38,7 +38,7 @@
           <p class="flow-text"> <?php echo $proj['description']; ?> </p>
         </div>
         <div class="col l2 offset-l2 m2 offset-1 s4 offset-s3">
-          <a class="waves-effect waves-light btn red lighten-2" href="<?php echo $proj['link']; ?>"> <?php echo $proj['Navbar']; ?></a>
+          <a class="waves-effect waves-light btn red lighten-2" href="Projet.php?id=<?php echo $proj['id']; ?>"> <?php echo $proj['Navbar']; ?></a>
         </div>
       </div>
 

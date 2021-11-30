@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('.dropdown-trigger').dropdown();
+  $('.dropdown-trigger').dropdown({coverTrigger:false});
   $('.parallax').parallax();
   $('.collapsible').collapsible();
   $('.modal').modal();
