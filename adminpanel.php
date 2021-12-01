@@ -216,6 +216,7 @@
             <?php
           }
           ?>
+<<<<<<< HEAD
         </div>
         <a href="#addprog" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
         <div class="stick"></div>
@@ -227,6 +228,39 @@
         $carrousel = $pre->fetchAll(PDO::FETCH_ASSOC);
         ?>
         <div class="row">
+=======
+          </div>
+          <a href="#addprog" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+
+          <div id="addprog" class="modal">
+            <form class="s12 container" method="post" action="addprog.php?id=<?php echo $proj['id'] ?>">
+              <div class="modal-content">
+                <h4 class="center">Création d'un nouveau concepteurs</h4>
+              </div>
+              <div class="input-field">
+                <input name="header" type="text" required>
+                <label for="header">Nom Prénom </label>
+              </div>
+              <div class="input-field s12">
+                <input name="img" type="file" required>
+              </div>
+              <div class="input-field s12">
+                <input name="alt" type="text" required>
+                <label for="alt">Description image</label>
+              </div>
+              <div class="input-field">
+                <textarea name="description" type="textarea" class="validate materialize-textarea" required></textarea>
+                <label for="description">Description</label>
+              </div>
+              <div class="modal-footer">
+                <input type="submit" value="Envoyer">
+              </div>
+            </form>
+        </div>
+
+          <div class="stick"></div>
+          <h3 class="center">Carrousel</h3>
+>>>>>>> 671578104f6e37c577ea0a71d0f65fb51009d466
           <?php
           foreach ($carrousel as $car) {
             ?>
@@ -269,17 +303,92 @@
                   </div>
                 </form>
               </div>
+<<<<<<< HEAD
             </div>
             <?php
           }
           ?>
           <a href="#addprog" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
         </div>
+=======
+              <?php
+            }
+            ?>
+            <a href="#addcar" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+
+            <div id="addcar" class="modal">
+              <form class="s12 container" method="post" action="addcar.php?id=<?php echo $proj['id'] ?>">
+                <div class="modal-content">
+                  <h4 class="center">Création d'un nouveau carrousel</h4>
+                </div>
+                  <div class="input-field s12">
+                    <input name="titre" type="text" required>
+                    <label for="titre">Titre</label>
+                  </div>
+                  <div class="input-field s12">
+                    <input name="description" type="text" required>
+                    <label for="description">Description</label>
+                  </div>
+                  <div class="input-field s12">
+                    <input name="img" type="file" required>
+                  </div>
+                  <div class="input-field s12">
+                    <input name="alt" type="text" required>
+                    <label for="alt">Description image</label>
+                  </div>
+                <div class="modal-footer">
+                  <input type="submit" value="Envoyer">
+                </div>
+              </form>
+          </div>
+          </div>
+>>>>>>> 671578104f6e37c577ea0a71d0f65fb51009d466
 
       </div>
     </div>
   </div>
 <?php } ?>
+<div class="block">
+  <a href="#addproj" class="modal-trigger waves-effect waves-light"><h2 class="red-text lighten-2"><i class="material-icons medium">add</i>ajouter</h2></a>
+  <div id="addproj" class="modal">
+    <form class="s12 container" method="post" action="addproj.php">
+      <div class="modal-content">
+        <h4 class="center">Création d'un nouveau Projet</h4>
+      </div>
+        <div class="input-field s12">
+          <input name="titre" type="text" required>
+          <label for="titre">Titre</label>
+        </div>
+        <div class="input-field s12">
+          <input name="navbar" type="text" required>
+          <label for="navbar">Titre pour navbar</label>
+        </div>
+        <div class="input-field s12">
+          <input name="description" type="text" required>
+          <label for="description">Description</label>
+        </div>
+        <div class="input-field s12">
+          <input name="img" type="file" required>
+        </div>
+        <div class="input-field s12">
+          <input name="alt" type="text" required>
+          <label for="alt">Description image</label>
+        </div>
+        <div class="input-field">
+          <textarea name="enjeux" type="textarea" class="materialize-textarea" required></textarea>
+          <label for="enjeux">Enjeux projet</label>
+        </div>
+        <div class="input-field">
+          <textarea name="cdc" type="textarea" class="materialize-textarea" required></textarea>
+          <label for="cdc">Cahier des charges</label>
+        </div>
+      <div class="modal-footer">
+        <input type="submit" value="Envoyer">
+      </div>
+    </form>
+  </div>
+</div>
+
 
 <?php require_once "footer.php" ?>
 <script src="js/jquery.js"></script>
