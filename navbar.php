@@ -32,26 +32,26 @@ require_once "config.php";
           </div>
           <div class="row">
             <div class="input-field col s6">
-              <input id="first_name" type="text" name="last_name" class="validate">
+              <input id="first_name" type="text" name="last_name" class="validate" required>
               <label for="first_name">Nom</label>
             </div>
             <div class="input-field col s6">
-              <input id="last_name" type="text" name="first_name" class="validate">
+              <input id="last_name" type="text" name="first_name" class="validate" required>
               <label for="last_name">Prénom</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="email" type="email" name="email" class="validate">
+              <input id="email" type="email" name="email" class="validate" required>
               <label for="email">Email</label>
             </div>
             <div class="input-field col s6">
-              <input id="password" type="password" name="password" class="validate">
+              <input id="password" type="password" name="password" class="validate" required>
               <label for="password">Mot de passe</label>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="modal-close waves-effect waves-green btn-flat">Envoyer</button>
+            <input type="submit" value="Envoyer">
           </div>
         </form>
       </form>
@@ -65,17 +65,17 @@ require_once "config.php";
       <form class="s12 container">
         <div class="row">
           <div class="input-field col s6">
-            <input id="first_name" type="text" class="validate">
+            <input id="first_name" type="text" class="validate" required>
             <label for="first_name">Nom</label>
           </div>
           <div class="input-field col s6">
-            <input id="last_name" type="text" class="validate">
+            <input id="last_name" type="text" class="validate" required>
             <label for="last_name">Prénom</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="email" type="email" class="validate">
+            <input id="email" type="email" class="validate" required>
             <label for="email">Email</label>
           </div>
           <div class="input-field col s12 m12 l12">
@@ -85,7 +85,7 @@ require_once "config.php";
         </div>
       </form>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
+        <input type="submit" value="Envoyer">
       </div>
     </div>
 
@@ -96,15 +96,15 @@ require_once "config.php";
       </div>
       <form class="s12 l12 m12 container" method="post" action="login.php">
         <div class="input-field s12 l12 m12">
-          <input id="email" type="email" name="email">
+          <input id="email" type="email" name="email" required>
           <label for="email">Email</label>
         </div>
         <div class="input-field s12 l12 m12">
-          <input id="password" type="password" name="password">
+          <input id="password" type="password" name="password" required>
           <label for="password">Mot de passe</label>
         </div>
         <div class="modal-footer">
-          <input type="submit" value="envoyer">
+          <input type="submit" value="Envoyer">
         </div>
       </form>
     </div>

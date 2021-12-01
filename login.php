@@ -4,12 +4,15 @@ $sql = "SELECT * FROM user WHERE mail = :email AND password = :password";
 $dataBinded=array(
   ':email'  => $_POST['email'],
   ':password'=> SHA1($_POST['password'])
+<<<<<<< HEAD
 );
 $_POST['password'] = SHA1($_POST['password']);
 $sql = "SELECT * FROM user WHERE mail = :email AND password = :password";
 $dataBinded=array(
     ':email'=> $_POST['email'],
     ':password'=> $_POST['password']
+=======
+>>>>>>> ecb6598216626bf7a0fb9f8f6e7f5e7beefbd032
 );
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
