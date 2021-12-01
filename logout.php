@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['user'] = "" ;
-echo 'You have been logged out.';
-header('Location:index.php');
+session_destroy();
+$msg = 'Vous avez été déconnecté.';
+header('Location:index.php?msg='.$msg);
 ?>

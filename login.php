@@ -16,9 +16,12 @@ $pre->execute($dataBinded);
 $user = current($pre->fetchAll(PDO::FETCH_ASSOC));//current prend la première ligne du tableau
 if(empty($user)){ //vérifie si le resultat est vide !
   //non connecté
-  echo "Email ou mot de passe incorrect !";
+  $msg = "Email ou mot de passe incorrect !";
+  header('Location:index.php?msg='.$msg);
 }else{
   $_SESSION['user'] = $user; //on enregistre que l'utilisateur est connecté
 }
-header('Location:index.php');//on le redirige sur la page d'accueil du site !
+
+$msg = "Bonjour ".$_SESSION['user']['prenom'];
+header('Location:index.php?msg='.$msg);//on le redirige sur la page d'accueil du site !
 ?>

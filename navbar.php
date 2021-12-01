@@ -4,10 +4,17 @@ require_once "config.php";
 
 <div class="navbar-fixed">
   <nav class="nav-extended">
-    <div class="nav-wrapper">
-      <h1 class="brand-logo"> <?php echo $titleNavbar; ?> </h1>
-      <!-- Modal Trigger -->
-      <a class='right waves-effect waves-light mr20 dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons">account_circle</i></a>
+    <div class="nav-wrapper row">
+      <h1 class="col brand-logo"> <?php echo $titleNavbar; ?> </h1>
+        <div class="right">
+          <?php
+          if(isset($_GET['msg'])){
+            $msg = $_GET['msg']; ?>
+            <p style="margin: 0;" class="col white-text"> <?php echo $msg; ?> </p>
+         <?php } ?>
+          <a class='col waves-effect waves-light mr20 dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons">account_circle</i></a>
+        </div>
+       </div>
 
       <ul id='dropdown1' class='dropdown-content'>
         <?php
@@ -51,7 +58,7 @@ require_once "config.php";
             </div>
           </div>
           <div class="modal-footer">
-            <input type="submit" value="Envoyer">
+            <input class="waves-effect waves-light btn grey lighten-2" type="submit" value="Envoyer">
           </div>
         </form>
       </form>
@@ -83,10 +90,10 @@ require_once "config.php";
             <label for="observation">Renseignez votre remarque/problème ici:</label>
           </div>
         </div>
+        <div class="modal-footer">
+          <input class="waves-effect waves-light btn grey lighten-2" type="submit" value="Envoyer">
+        </div>
       </form>
-      <div class="modal-footer">
-        <input type="submit" value="Envoyer">
-      </div>
     </div>
 
     <div id="modal3" class="modal">
@@ -104,7 +111,7 @@ require_once "config.php";
           <label for="password">Mot de passe</label>
         </div>
         <div class="modal-footer">
-          <input type="submit" value="Envoyer">
+          <input class="waves-effect waves-light btn grey lighten-2" type="submit" value="Envoyer">
         </div>
       </form>
     </div>

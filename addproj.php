@@ -1,11 +1,12 @@
 <?php
 require_once "config.php";
 
-$destination = "img/".$_FILES['img']['name'];
-move_uploaded_file($_FILES['img']['tmp_name'],$destination);
-$pre = $pdo->prepare($sql);
-$pre->execute();
-
+if (isset($_POST['upload'])) {
+  $filename = $_FILES["uploadfile"]["name"];
+  $tempname = $_FILES["uploadfile"]["tmp_name"];
+  $folder = "img/".$filename;
+  move_uploaded_file($tempname, $folder);
+}
 
 $sql = "INSERT INTO concepteurs(img_background,imgalt,titre,description,enjeux,cdc,navbar) VALUES(:destination,:alt,:titre,:description,:enjeux,:cdc,:navbar)";
 $dataBinded=array(
@@ -15,7 +16,7 @@ $dataBinded=array(
   ':enjeux'=> $_POST['enjeux'],
   ':cdc'=> $_POST['cdc'],
   ':navbar'=> $_POST['navbar'],
-  ':destination' => $destination
+  ':destination' => $folder
 );
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);

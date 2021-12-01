@@ -1,3 +1,11 @@
+<?php
+require_once "config.php";
+if (isset($_SESSION['user'])){
+  if ($_SESSION['user']['admin'] == '0'){
+    header('Location:index.php');
+  }}else {
+    header('Location:index.php');
+  } ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -13,12 +21,8 @@
 </head>
 <body>
   <?php
-  require_once "config.php";
   $titleNavbar="Admin panel";
   require_once "navbar.php";
-  if (empty($_SESSION['user']) || $_SESSION['user']['admin'] == 0){
-    header('Location:index.php');
-  }
   ?>
   <div class="mt45 block red lighten-2">
     <h2 class="white-text">users</h2>
@@ -104,7 +108,7 @@
       <div class="col s3">
         <h3 class="mt45 center red-text lighten-2"><?php echo $proj['titre']; ?></h3>
         <p class="center flow-text"> <?php echo $proj['description']; ?> </p>
-        <a class="modal-trigger" href="#modifproject<?php echo $proj['id'] ?>" style="margin-left: 20%;text-decoration: none;"><i class="col s3 center large material-icons">build</i></a>
+        <a href="#modifproject<?php echo $proj['id'] ?>" style="margin-left: 50px;"class="modal-trigger waves-effect waves-light"><h2 class="red-text lighten-2"><i class="material-icons small">build</i>modifier</h2></a>
       </div>
       <div class="parallax-container">
         <div class="python parallax"><img src="<?php echo $proj['img_background']; ?>" alt="<?php echo $proj['imgalt']; ?>"></div>
@@ -217,9 +221,9 @@
           }
           ?>
           </div>
-          <a href="#addprog" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+          <a href="#addprog<?php echo $proj['id']; ?>" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
 
-          <div id="addprog" class="modal">
+          <div id="addprog<?php echo $proj['id']; ?>" class="modal">
             <form class="s12 container" method="post" action="addprog.php?id=<?php echo $proj['id'] ?>">
               <div class="modal-content">
                 <h4 class="center">Création d'un nouveau concepteurs</h4>
@@ -247,6 +251,13 @@
 
           <div class="stick"></div>
           <h3 class="center">Carrousel</h3>
+          <?php
+          $id = $proj['id'];
+          $sql = "SELECT * FROM carrousel WHERE projet_id = $id";
+          $pre = $pdo->prepare($sql);
+          $pre->execute();
+          $carrousel = $pre->fetchAll(PDO::FETCH_ASSOC); ?>
+          <div class="row">
           <?php
           foreach ($carrousel as $car) {
             ?>
@@ -289,12 +300,13 @@
                   </div>
                 </form>
               </div>
+            </div>
               <?php
             }
             ?>
-            <a href="#addcar" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+            <a href="#addcar<?php echo $proj['id']; ?>" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
 
-            <div id="addcar" class="modal">
+            <div id="addcar<?php echo $proj['id']; ?>" class="modal">
               <form class="s12 container" method="post" action="addcar.php?id=<?php echo $proj['id'] ?>">
                 <div class="modal-content">
                   <h4 class="center">Création d'un nouveau carrousel</h4>
@@ -345,7 +357,7 @@
           <label for="description">Description</label>
         </div>
         <div class="input-field s12">
-          <input name="img" type="file" required>
+          <input name="uploadfile" type="file" value="" required>
         </div>
         <div class="input-field s12">
           <input name="alt" type="text" required>
@@ -360,7 +372,7 @@
           <label for="cdc">Cahier des charges</label>
         </div>
       <div class="modal-footer">
-        <input type="submit" value="Envoyer">
+        <input class="waves-effect waves-light btn grey lighten-2" name="upload" type="submit" value="Envoyer">
       </div>
     </form>
   </div>
