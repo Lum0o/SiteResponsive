@@ -28,10 +28,10 @@
   $pre->execute();
   $programmers = $pre->fetchAll(PDO::FETCH_ASSOC);
 
-  $sql = "SELECT * FROM caroussel WHERE projet_id = $id";
+  $sql = "SELECT * FROM carrousel WHERE projet_id = $id";
   $pre = $pdo->prepare($sql);
   $pre->execute();
-  $caroussel = $pre->fetchAll(PDO::FETCH_ASSOC);
+  $carrousel = $pre->fetchAll(PDO::FETCH_ASSOC);
 
   $titleNavbar = $proj['Navbar'];
   ?>
@@ -118,7 +118,7 @@
           </div>
           <?php
           $i=0;
-          foreach ($caroussel as $page) {
+          foreach ($carrousel as $page) {
             $i++;
             $url="";
             switch ($i) {
