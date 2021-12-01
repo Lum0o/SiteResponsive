@@ -96,17 +96,17 @@ require_once "config.php";
       </div>
       <form class="s12 l12 m12 container" action="login.php">
         <div class="input-field s12 l12 m12">
-          <input id="email" type="email" name="email" class="validate">
+          <input type="email" name="email">
           <label for="email">Email</label>
         </div>
         <div class="input-field s12 l12 m12">
-          <input id="password" type="password" name="password" class="validate">
+          <input type="password" name="password">
           <label for="password">Mot de passe</label>
         </div>
+        <div class="modal-footer">
+          <button type="submit" class="modal-close waves-effect waves-green btn-flat">Envoyer</button>
+        </div>
       </form>
-      <div class="modal-footer">
-        <a href="login.php" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
-      </div>
     </div>
 
     <div class="nav-content">
