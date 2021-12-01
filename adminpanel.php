@@ -216,19 +216,6 @@
             <?php
           }
           ?>
-<<<<<<< HEAD
-        </div>
-        <a href="#addprog" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
-        <div class="stick"></div>
-        <h3 class="center">Carrousel</h3>
-        <?php
-        $sql = "SELECT * FROM carrousel WHERE projet_id = $id";
-        $pre = $pdo->prepare($sql);
-        $pre->execute();
-        $carrousel = $pre->fetchAll(PDO::FETCH_ASSOC);
-        ?>
-        <div class="row">
-=======
           </div>
           <a href="#addprog" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
 
@@ -260,7 +247,6 @@
 
           <div class="stick"></div>
           <h3 class="center">Carrousel</h3>
->>>>>>> 671578104f6e37c577ea0a71d0f65fb51009d466
           <?php
           foreach ($carrousel as $car) {
             ?>
@@ -303,14 +289,6 @@
                   </div>
                 </form>
               </div>
-<<<<<<< HEAD
-            </div>
-            <?php
-          }
-          ?>
-          <a href="#addprog" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
-        </div>
-=======
               <?php
             }
             ?>
@@ -342,7 +320,6 @@
               </form>
           </div>
           </div>
->>>>>>> 671578104f6e37c577ea0a71d0f65fb51009d466
 
       </div>
     </div>
