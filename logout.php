@@ -1,6 +1,6 @@
 <?php
 session_start();
-session_destroy();
+$_SESSION['user'] = "" ;
 echo 'You have been logged out.';
 header('Location:index.php');
  ?>
