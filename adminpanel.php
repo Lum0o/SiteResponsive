@@ -20,8 +20,8 @@
       header('Location:index.php');
   }
 ?>
-<div class="mt45 block orange darken-1">
-  <h2>users</h2>
+<div class="mt45 block red lighten-2">
+  <h2 class="white-text">users</h2>
 </div>
 <div class="">
   <div class="row">
@@ -90,8 +90,8 @@
   </div>
 <?php } ?>
 
-<div class="block orange darken-2">
-  <h2 class="center">projects</h2>
+<div class="block red lighten-2">
+  <h2 class="white-text">projects</h2>
 </div>
 <?php
 $sql = "SELECT * FROM projet";
@@ -113,7 +113,7 @@ foreach($data as $proj){ ?>
   <div id="modifproject<?php echo $proj['id'] ?>" class="modal">
     <div class="modal-content">
       <h4 class="center">Modifications <?php echo $proj['titre']?></h4>
-      <form class="container" action="modifproj.php?id=<?php echo $user['id']; ?>" method="post" enctype="multipart/form-data">
+      <form class="container" action="modifproj.php?id=<?php echo $proj['id'] ?>" method="post" enctype="multipart/form-data">
         <div class="input-field col s12">
           <input name="titre" type="text" class="validate">
           <label for="titre">Titre ( <?php echo $proj['titre']; ?> )</label>
@@ -216,6 +216,8 @@ foreach($data as $proj){ ?>
             <?php
           }
           ?>
+          </div>
+          <a href="#addprog" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
           <div class="stick"></div>
           <h3 class="center">Carrousel</h3>
           <?php
@@ -271,6 +273,7 @@ foreach($data as $proj){ ?>
               <?php
             }
             ?>
+            <a href="#addprog" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
           </div>
 
       </div>

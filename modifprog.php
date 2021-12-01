@@ -4,9 +4,9 @@ $id=$_GET['id'];
 if(!empty($_FILES['imgprog'])){
   $destination = "img/".$_FILES['imgprog']['name'];
   move_uploaded_file($_FILES['imgprog']['tmp_name'],$destination);
-  $sql = "UPDATE concepteurs SET img = $destination WHERE id=$id";
+  $sql = "UPDATE concepteurs SET img = '.$destination.' WHERE id='.$id.'";
   $pre = $pdo->prepare($sql);
-  $pre->execute($dataBinded);
+  $pre->execute();
 }
 
 if(!empty($_POST['alt'])){

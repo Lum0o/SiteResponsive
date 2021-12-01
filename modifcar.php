@@ -4,9 +4,9 @@ $id=$_GET['id'];
 if(!empty($_FILES['imgcar'])){
   $destination = "img/".$_FILES['imgcar']['name'];
   move_uploaded_file($_FILES['imgcar']['tmp_name'],$destination);
-  $sql = "UPDATE carrousel SET img = $destination WHERE id=$id";
+  $sql = "UPDATE carrousel SET img = '.$destination.' WHERE id='.$id.'";
   $pre = $pdo->prepare($sql);
-  $pre->execute($dataBinded);
+  $pre->execute();
 }
 
 if(!empty($_POST['alt'])){

@@ -1,19 +1,23 @@
 <?php
 require_once "config.php";
-$id=$_GET['id'];
+$id = $_GET['id'];
+
 if(!empty($_FILES['imgproj'])){
   $destination = "img/".$_FILES['imgproj']['name'];
-  move_uploaded_file($_FILES['imgproj']['tmp_name'],$destination);
-  $sql = "UPDATE projet SET img_background = $destination WHERE id=$id";
+  move_uploaded_file($_FILES['imgproj']['tmp_name'], $destination);
+
+  $sql = "UPDATE projet SET img_background = '.$destination.' WHERE id = '.$id.'";
+  );
+
   $pre = $pdo->prepare($sql);
-  $pre->execute($dataBinded);
+  $pre->execute();
 }
 
 if(!empty($_POST['alt'])){
 
-$dataBinded=array(
-    ':alt'=> $_POST['alt']
-);
+  $dataBinded=array(
+      ':alt'=> $_POST['alt']
+  );
   $sql = "UPDATE projet SET imgalt = :alt WHERE id=$id";
   $pre = $pdo->prepare($sql);
   $pre->execute($dataBinded);
