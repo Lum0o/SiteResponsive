@@ -94,15 +94,16 @@ require_once "config.php";
         <h4 class="center">Log in</h4>
         <p class="center">Connectez vous</p>
       </div>
-      <form class="s12 l12 m12 container" action="login.php">
+      <form class="s12 l12 m12 container" method="post" action="login.php">
         <div class="input-field s12 l12 m12">
-          <input id="email" type="email" name="email" class="validate">
+          <input id="email" type="email" name="email">
           <label for="email">Email</label>
         </div>
         <div class="input-field s12 l12 m12">
-          <input id="password" type="password" name="password" class="validate">
+          <input id="password" type="password" name="password">
           <label for="password">Mot de passe</label>
         </div>
+        <input type="submit" name="" value="envoyer">
       </form>
       <div class="modal-footer">
         <a href="login.php" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
