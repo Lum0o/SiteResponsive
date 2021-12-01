@@ -103,10 +103,9 @@ require_once "config.php";
           <input id="password" type="password" name="password">
           <label for="password">Mot de passe</label>
         </div>
-        <input type="submit" name="" value="envoyer">
+        <input type="submit" value="envoyer">
       </form>
       <div class="modal-footer">
-        <a href="login.php" class="modal-close waves-effect waves-green btn-flat">Envoyer</a>
       </div>
     </div>
 
