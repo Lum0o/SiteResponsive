@@ -12,7 +12,7 @@ require_once "config.php";
       <ul id='dropdown1' class='dropdown-content'>
         <?php
         if (isset($_SESSION['user'])){
-          if (isset($_SESSION['user']) && $_SESSION['user']['admin'] == 1){
+          if ($_SESSION['user']['admin'] == 1){
             echo '<li><a class="red-text lighten-2" href="adminpanel.php">Admin panel</a></li>';
           }
           echo '<li><a class="red-text lighten-2" href="logout.php">Logout</a></li>';

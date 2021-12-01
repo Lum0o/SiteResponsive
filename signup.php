@@ -9,7 +9,9 @@ $dataBinded=array(
 );
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
-$sql = "SELECT * FROM user WHERE last_name = ':last_name'AND first_name = ':first_name'AND email = ':email'AND password = SHA1(':password')";
+
+
+$sql = "SELECT * FROM user WHERE mail = ':email'";
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
 $user = current($pre->fetchAll(PDO::FETCH_ASSOC));
