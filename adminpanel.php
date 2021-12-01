@@ -94,7 +94,7 @@
 <?php } ?>
 
 <div class="block orange darken-2">
-  <h2 class="center">projects</h2>
+  <h2 class="center"><br>projects</h2>
 </div>
 <?php
 $sql = "SELECT * FROM projet";
@@ -147,7 +147,8 @@ foreach($data as $proj){ ?>
           <button type="submit" class="modal-close waves-effect waves-green btn-flat">Modifier</button>
           <a href="deluser.php?id=<?php echo $user['id']; ?>" class="modal-close waves-effect waves-red btn-flat">Supprimer</a>
         </div>
-        <h4 class="center">concepteurs</h4>
+        <div class="stick"></div>
+        <h2 class="center">concepteurs</h2>
         <?php
         $id = $proj['id'];
         $sql = "SELECT * FROM concepteurs WHERE projet_id = $id";
@@ -179,7 +180,10 @@ foreach($data as $proj){ ?>
                 </li>
               </ul>
             </div>
-            <a class="modal-trigger col s2" href="#modifprog<?php echo $prog['id'] ?>"><i class="col s3 center large material-icons">build</i></a>
+            <div class="valign-wrapper">
+              <a href="#modifprog<?php echo $prog['id'] ?>" class="modal-trigger btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+
+            </div>
             <div id="modifprog<?php echo $prog['id'] ?>" class="modal">
               <div class="modal-content">
                 <h4 class="center">Modifications <?php echo $prog['header']?></h4>
@@ -225,7 +229,7 @@ foreach($data as $proj){ ?>
               <div class="col s8">
                 <h5 class="center"><?php echo $car['titre']; ?></h5>
                 <h6 class="center"><?php echo $car['description']; ?></h6>
-                <button class="modal-close waves-effect waves-green btn-flat">Modifier</button>
+                <button class="modal-trigger waves-effect waves-green btn-flat">Modifier</button>
               </div>
               <div class="col s4">
                 <img src="<?php echo $car['img']; ?>" alt="<?php echo $car['imgalt']; ?>"style="width : 100%;">

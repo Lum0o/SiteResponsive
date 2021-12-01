@@ -103,10 +103,10 @@ require_once "config.php";
           <input id="password" type="password" name="password">
           <label for="password">Mot de passe</label>
         </div>
-        <input type="submit" value="envoyer">
+        <div class="modal-footer">
+          <input type="submit" value="envoyer">
+        </div>
       </form>
-      <div class="modal-footer">
-      </div>
     </div>
 
     <div class="nav-content">
