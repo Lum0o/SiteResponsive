@@ -17,133 +17,133 @@
   $titleNavbar="Admin panel";
   require_once "navbar.php";
   if (empty($_SESSION['user']) || $_SESSION['user']['admin'] == 0){
-      header('Location:index.php');
+    header('Location:index.php');
   }
-?>
-<div class="mt45 block red lighten-2">
-  <h2 class="white-text">users</h2>
-</div>
-<div class="">
-  <div class="row">
-    <div class="col s3">
-      <h3 class="center">Nom et prénom</h3>
+  ?>
+  <div class="mt45 block red lighten-2">
+    <h2 class="white-text">users</h2>
+  </div>
+  <div class="">
+    <div class="row">
+      <div class="col s3">
+        <h3 class="center">Nom et prénom</h3>
+      </div>
+      <div class="col s3">
+        <h3 class="center">Email</h3>
+      </div>
+      <div class="col s3">
+        <h3 class="center">Admin</h3>
+      </div>
+      <div class="col s3">
+        <h3 class="center">Modifier</h3>
+      </div>
     </div>
-    <div class="col s3">
-      <h3 class="center">Email</h3>
+    <?php
+    $sql = "SELECT * FROM user ORDER BY admin DESC";
+    $pre = $pdo->prepare($sql);
+    $pre->execute();
+    $data = $pre->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach($data as $user){ ?>
+      <div class="row bloc_user">
+        <h4 class="col s3 center"><?php echo $user['nom']." ".$user['prenom'] ?></h4>
+        <h4 class="col s3 center"><?php echo $user['mail'] ?></h4>
+        <h4 class="col s3 center"><?php
+        if($user['admin']==0){
+          echo 'Non';
+        } else {echo 'Oui';} ?></h4>
+        <a class="modal-trigger" href="#modifuser<?php echo $user['id'] ?>"><i class="col s3 center medium material-icons">build</i></a>
+      </div>
+
+      <div id="modifuser<?php echo $user['id'] ?>" class="modal">
+        <div class="modal-content">
+          <h4 class="center">Modifications <?php echo $user['nom']." ".$user['prenom'] ?></h4>
+          <form class="container" action="modifuser.php?id=<?php echo $user['id']; ?>" method="post">
+
+            <div class="row">
+              <div class="input-field col s6">
+                <input name="first_name" type="text" class="validate">
+                <label for="first_name">Nom ( <?php echo $user['nom']; ?> )</label>
+              </div>
+              <div class="input-field col s6">
+                <input name="last_name" type="text" class="validate">
+                <label for="last_name">Prénom ( <?php echo $user['prenom']; ?> )</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="email" type="email" class="validate">
+                <label for="email">Email ( <?php echo $user['mail']; ?> )</label>
+              </div>
+              <div class="input-field col s6">
+                <input name="admin" type="text" class="validate">
+                <label for="admin">Admin ( <?php echo $user['admin']; ?> ) oui/non</label>
+              </div>
+            </div>
+            <div class=" s12 modal-footer">
+              <button type="submit" class="modal-close waves-effect waves-green btn-flat">Modifier</button>
+              <a href="deluser.php?id=<?php echo $user['id']; ?>" class="modal-close waves-effect waves-red btn-flat">Supprimer</a>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="col s3">
-      <h3 class="center">Admin</h3>
-    </div>
-    <div class="col s3">
-      <h3 class="center">Modifier</h3>
-    </div>
+  <?php } ?>
+
+  <div class="block red lighten-2">
+    <h2 class="white-text">projects</h2>
   </div>
   <?php
-  $sql = "SELECT * FROM user ORDER BY admin DESC";
+  $sql = "SELECT * FROM projet";
   $pre = $pdo->prepare($sql);
   $pre->execute();
   $data = $pre->fetchAll(PDO::FETCH_ASSOC);
 
-  foreach($data as $user){ ?>
-    <div class="row bloc_user">
-      <h4 class="col s3 center"><?php echo $user['nom']." ".$user['prenom'] ?></h4>
-      <h4 class="col s3 center"><?php echo $user['mail'] ?></h4>
-      <h4 class="col s3 center"><?php
-      if($user['admin']==0){
-        echo 'Non';
-      } else {echo 'Oui';} ?></h4>
-      <a class="modal-trigger" href="#modifuser<?php echo $user['id'] ?>"><i class="col s3 center medium material-icons">build</i></a>
+  foreach($data as $proj){ ?>
+    <div class="row">
+      <div class="col s3">
+        <h3 class="mt45 center red-text lighten-2"><?php echo $proj['titre']; ?></h3>
+        <p class="center flow-text"> <?php echo $proj['description']; ?> </p>
+        <a class="modal-trigger" href="#modifproject<?php echo $proj['id'] ?>" style="margin-left: 20%;text-decoration: none;"><i class="col s3 center large material-icons">build</i></a>
+      </div>
+      <div class="parallax-container">
+        <div class="python parallax"><img src="<?php echo $proj['img_background']; ?>" alt="<?php echo $proj['imgalt']; ?>"></div>
+      </div>
     </div>
-
-    <div id="modifuser<?php echo $user['id'] ?>" class="modal">
+    <div id="modifproject<?php echo $proj['id'] ?>" class="modal">
       <div class="modal-content">
-        <h4 class="center">Modifications <?php echo $user['nom']." ".$user['prenom'] ?></h4>
-        <form class="container" action="modifuser.php?id=<?php echo $user['id']; ?>" method="post">
-
-          <div class="row">
-            <div class="input-field col s6">
-              <input name="first_name" type="text" class="validate">
-              <label for="first_name">Nom ( <?php echo $user['nom']; ?> )</label>
-            </div>
-            <div class="input-field col s6">
-              <input name="last_name" type="text" class="validate">
-              <label for="last_name">Prénom ( <?php echo $user['prenom']; ?> )</label>
-            </div>
+        <h4 class="center">Modifications <?php echo $proj['titre']?></h4>
+        <form class="container" action="modifproj.php?id=<?php echo $proj['id'] ?>" method="post" enctype="multipart/form-data">
+          <div class="input-field col s12">
+            <input name="titre" type="text" class="validate">
+            <label for="titre">Titre ( <?php echo $proj['titre']; ?> )</label>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input name="email" type="email" class="validate">
-              <label for="email">Email ( <?php echo $user['mail']; ?> )</label>
-            </div>
-            <div class="input-field col s6">
-              <input name="admin" type="text" class="validate">
-              <label for="admin">Admin ( <?php echo $user['admin']; ?> ) oui/non</label>
-            </div>
+          <div class="input-field col s12">
+            <input name="description" type="text" class="validate">
+            <label for="description">Description</label>
           </div>
-          <div class=" s12 modal-footer">
+          <div class="input-field">
+            <input name="imgproj" type="file" class="validate">
+          </div>
+          <div class="">
+            <img src="<?php echo $proj['img_background']; ?>" alt="<?php echo $proj['imgalt']; ?>" style="width : 100%;">
+          </div>
+          <div class="input-field col s6">
+            <input name="alt" type="text" class="validate">
+            <label for="alt">Description image ( <?php echo $proj['imgalt']; ?> )</label>
+          </div>
+          <div class="input-field">
+            <textarea name="enjeux" type="textarea" class="validate materialize-textarea"></textarea>
+            <label for="enjeux">Enjeux projet</label>
+          </div>
+          <div class="input-field">
+            <textarea name="cdc" type="textarea" class="validate materialize-textarea"></textarea>
+            <label for="cdc">Cahier des charges</label>
+          </div>
+          <div class="right">
             <button type="submit" class="modal-close waves-effect waves-green btn-flat">Modifier</button>
             <a href="deluser.php?id=<?php echo $user['id']; ?>" class="modal-close waves-effect waves-red btn-flat">Supprimer</a>
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
-<?php } ?>
-
-<div class="block red lighten-2">
-  <h2 class="white-text">projects</h2>
-</div>
-<?php
-$sql = "SELECT * FROM projet";
-$pre = $pdo->prepare($sql);
-$pre->execute();
-$data = $pre->fetchAll(PDO::FETCH_ASSOC);
-
-foreach($data as $proj){ ?>
-  <div class="row">
-    <div class="col s3">
-      <h3 class="mt45 center red-text lighten-2"><?php echo $proj['titre']; ?></h3>
-      <p class="center flow-text"> <?php echo $proj['description']; ?> </p>
-      <a class="modal-trigger" href="#modifproject<?php echo $proj['id'] ?>" style="margin-left: 20%;text-decoration: none;"><i class="col s3 center large material-icons">build</i></a>
-    </div>
-    <div class="parallax-container">
-      <div class="python parallax"><img src="<?php echo $proj['img_background']; ?>" alt="<?php echo $proj['imgalt']; ?>"></div>
-    </div>
-  </div>
-  <div id="modifproject<?php echo $proj['id'] ?>" class="modal">
-    <div class="modal-content">
-      <h4 class="center">Modifications <?php echo $proj['titre']?></h4>
-      <form class="container" action="modifproj.php?id=<?php echo $proj['id'] ?>" method="post" enctype="multipart/form-data">
-        <div class="input-field col s12">
-          <input name="titre" type="text" class="validate">
-          <label for="titre">Titre ( <?php echo $proj['titre']; ?> )</label>
-        </div>
-        <div class="input-field col s12">
-          <input name="description" type="text" class="validate">
-          <label for="description">Description</label>
-        </div>
-        <div class="input-field">
-          <input name="imgproj" type="file" class="validate">
-        </div>
-        <div class="">
-          <img src="<?php echo $proj['img_background']; ?>" alt="<?php echo $proj['imgalt']; ?>" style="width : 100%;">
-        </div>
-        <div class="input-field col s6">
-          <input name="alt" type="text" class="validate">
-          <label for="alt">Description image ( <?php echo $proj['imgalt']; ?> )</label>
-        </div>
-        <div class="input-field">
-          <textarea name="enjeux" type="textarea" class="validate materialize-textarea"></textarea>
-          <label for="enjeux">Enjeux projet</label>
-        </div>
-        <div class="input-field">
-          <textarea name="cdc" type="textarea" class="validate materialize-textarea"></textarea>
-          <label for="cdc">Cahier des charges</label>
-        </div>
-        <div class="right">
-          <button type="submit" class="modal-close waves-effect waves-green btn-flat">Modifier</button>
-          <a href="deluser.php?id=<?php echo $user['id']; ?>" class="modal-close waves-effect waves-red btn-flat">Supprimer</a>
-        </div>
         </form>
         <div class="stick"></div>
         <h3 class="center">concepteurs</h3>
@@ -216,65 +216,65 @@ foreach($data as $proj){ ?>
             <?php
           }
           ?>
-          </div>
-          <a href="#addprog" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
-          <div class="stick"></div>
-          <h3 class="center">Carrousel</h3>
+        </div>
+        <a href="#addprog" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+        <div class="stick"></div>
+        <h3 class="center">Carrousel</h3>
+        <?php
+        $sql = "SELECT * FROM carrousel WHERE projet_id = $id";
+        $pre = $pdo->prepare($sql);
+        $pre->execute();
+        $carrousel = $pre->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+        <div class="row">
           <?php
-          $sql = "SELECT * FROM carrousel WHERE projet_id = $id";
-          $pre = $pdo->prepare($sql);
-          $pre->execute();
-          $carrousel = $pre->fetchAll(PDO::FETCH_ASSOC);
-          ?>
-          <div class="row">
-            <?php
-            foreach ($carrousel as $car) {
-              ?>
-              <div class="col s1">
-                <a href="#modifcar<?php echo $prog['id'] ?>" class="grey lighten-1 modal-trigger btn-floating btn-large waves-effect waves-light red" style="margin-top:10px;"enctype="multipart/form-data"><i class="material-icons">build</i></a>
-              </div>
-              <div class="col s7">
-                <h5 class="center"><?php echo $car['titre']; ?></h5>
-                <h6 class="center"><?php echo $car['description']; ?></h6>
-              </div>
-              <div class="col s4">
-                <img src="<?php echo $car['img']; ?>" alt="<?php echo $car['imgalt']; ?>"style="width : 100%;">
-              </div>
-              <div id="modifcar<?php echo $car['id'] ?>" class="modal">
-                <div class="modal-content">
-                  <h4 class="center">Modifications <?php echo $car['titre'];?></h4>
-                  <form class="container" action="modifcar.php?id=<?php echo $car['id']; ?>" method="post">
-
-
-                      <div class="input-field s12">
-                        <input name="titre" type="text" class="validate">
-                        <label for="titre">Titre ( <?php echo $car['titre']; ?> )</label>
-                      </div>
-                      <div class="input-field s12">
-                        <input name="description" type="text" class="validate">
-                        <label for="description">Description</label>
-                      </div>
-                      <div class="input-field s12">
-                        <input name="imgcar" type="file" class="validate">
-                      </div>
-                      <img src="<?php echo $car['img']; ?>" alt="<?php echo $car['imgalt']; ?>"style="width : 100%;">
-                      <div class="input-field s12">
-                        <input name="alt" type="text" class="validate">
-                        <label for="alt">Description image</label>
-                      </div>
-
-                    <div class=" s12 modal-footer">
-                      <button type="submit" class="modal-close waves-effect waves-green btn-flat">Modifier</button>
-                      <a href="delcar.php?id=<?php echo $car['id']; ?>" class="modal-close waves-effect waves-red btn-flat">Supprimer</a>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              <?php
-            }
+          foreach ($carrousel as $car) {
             ?>
-            <a href="#addprog" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
-          </div>
+            <div class="col s1">
+              <a href="#modifcar<?php echo $prog['id'] ?>" class="grey lighten-1 modal-trigger btn-floating btn-large waves-effect waves-light red" style="margin-top:10px;"enctype="multipart/form-data"><i class="material-icons">build</i></a>
+            </div>
+            <div class="col s7">
+              <h5 class="center"><?php echo $car['titre']; ?></h5>
+              <h6 class="center"><?php echo $car['description']; ?></h6>
+            </div>
+            <div class="col s4">
+              <img src="<?php echo $car['img']; ?>" alt="<?php echo $car['imgalt']; ?>"style="width : 100%;">
+            </div>
+            <div id="modifcar<?php echo $car['id'] ?>" class="modal">
+              <div class="modal-content">
+                <h4 class="center">Modifications <?php echo $car['titre'];?></h4>
+                <form class="container" action="modifcar.php?id=<?php echo $car['id']; ?>" method="post">
+
+
+                  <div class="input-field s12">
+                    <input name="titre" type="text" class="validate">
+                    <label for="titre">Titre ( <?php echo $car['titre']; ?> )</label>
+                  </div>
+                  <div class="input-field s12">
+                    <input name="description" type="text" class="validate">
+                    <label for="description">Description</label>
+                  </div>
+                  <div class="input-field s12">
+                    <input name="imgcar" type="file" class="validate">
+                  </div>
+                  <img src="<?php echo $car['img']; ?>" alt="<?php echo $car['imgalt']; ?>"style="width : 100%;">
+                  <div class="input-field s12">
+                    <input name="alt" type="text" class="validate">
+                    <label for="alt">Description image</label>
+                  </div>
+
+                  <div class=" s12 modal-footer">
+                    <button type="submit" class="modal-close waves-effect waves-green btn-flat">Modifier</button>
+                    <a href="delcar.php?id=<?php echo $car['id']; ?>" class="modal-close waves-effect waves-red btn-flat">Supprimer</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <?php
+          }
+          ?>
+          <a href="#addprog" class="red modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+        </div>
 
       </div>
     </div>

@@ -7,16 +7,16 @@ if(!empty($_FILES['imgproj'])){
   move_uploaded_file($_FILES['imgproj']['tmp_name'], $destination);
 
   $sql = "UPDATE projet SET img_background = '.$destination.' WHERE id = '.$id.'";
-  );
+);
 
-  $pre = $pdo->prepare($sql);
-  $pre->execute();
+$pre = $pdo->prepare($sql);
+$pre->execute();
 }
 
 if(!empty($_POST['alt'])){
 
   $dataBinded=array(
-      ':alt'=> $_POST['alt']
+    ':alt'=> $_POST['alt']
   );
   $sql = "UPDATE projet SET imgalt = :alt WHERE id=$id";
   $pre = $pdo->prepare($sql);
@@ -25,9 +25,9 @@ if(!empty($_POST['alt'])){
 
 if(!empty($_POST['description'])){
 
-$dataBinded=array(
+  $dataBinded=array(
     ':description'=> $_POST['description']
-);
+  );
   $sql = "UPDATE projet SET description = :description WHERE id=$id";
   $pre = $pdo->prepare($sql);
   $pre->execute($dataBinded);
@@ -35,27 +35,27 @@ $dataBinded=array(
 
 if(!empty($_POST['titre'])){
 
-$dataBinded=array(
+  $dataBinded=array(
     ':titre'=> $_POST['titre']
-);
+  );
   $sql = "UPDATE projet SET titre = :titre WHERE id=$id";
   $pre = $pdo->prepare($sql);
   $pre->execute($dataBinded);
 }
 if(!empty($_POST['enjeux'])){
 
-$dataBinded=array(
+  $dataBinded=array(
     ':enjeux'=> $_POST['enjeux']
-);
+  );
   $sql = "UPDATE projet SET enjeux = :enjeux WHERE id=$id";
   $pre = $pdo->prepare($sql);
   $pre->execute($dataBinded);
 }
 if(!empty($_POST['cdc'])){
 
-$dataBinded=array(
+  $dataBinded=array(
     ':cdc'=> $_POST['cdc']
-);
+  );
   $sql = "UPDATE projet SET cdc = :cdc WHERE id=$id";
   $pre = $pdo->prepare($sql);
   $pre->execute($dataBinded);

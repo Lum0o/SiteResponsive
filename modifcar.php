@@ -11,9 +11,9 @@ if(!empty($_FILES['imgcar'])){
 
 if(!empty($_POST['alt'])){
 
-$dataBinded=array(
+  $dataBinded=array(
     ':alt'=> $_POST['alt']
-);
+  );
   $sql = "UPDATE carrousel SET imgalt = :alt WHERE id=$id";
   $pre = $pdo->prepare($sql);
   $pre->execute($dataBinded);
@@ -21,9 +21,9 @@ $dataBinded=array(
 
 if(!empty($_POST['description'])){
 
-$dataBinded=array(
+  $dataBinded=array(
     ':description'=> $_POST['description']
-);
+  );
   $sql = "UPDATE carrousel SET description = :description WHERE id=$id";
   $pre = $pdo->prepare($sql);
   $pre->execute($dataBinded);
@@ -31,9 +31,9 @@ $dataBinded=array(
 
 if(!empty($_POST['titre'])){
 
-$dataBinded=array(
+  $dataBinded=array(
     ':titre'=> $_POST['titre']
-);
+  );
   $sql = "UPDATE carrousel SET titre = :titre WHERE id=$id";
   $pre = $pdo->prepare($sql);
   $pre->execute($dataBinded);

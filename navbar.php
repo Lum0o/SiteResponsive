@@ -65,21 +65,21 @@ require_once "config.php";
       <form class="s12 container">
         <div class="row">
           <div class="input-field col s6">
-            <input id="first_name" type="text" class="validate" required>
+            <input id="first_name" type="text" required>
             <label for="first_name">Nom</label>
           </div>
           <div class="input-field col s6">
-            <input id="last_name" type="text" class="validate" required>
+            <input id="last_name" type="text" required>
             <label for="last_name">Prénom</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="email" type="email" class="validate" required>
+            <input id="email" type="email" required>
             <label for="email">Email</label>
           </div>
           <div class="input-field col s12 m12 l12">
-            <input id="observation" type="text" class="validate">
+            <input id="observation" type="text">
             <label for="observation">Renseignez votre remarque/problème ici:</label>
           </div>
         </div>
