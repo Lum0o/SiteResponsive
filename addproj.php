@@ -21,5 +21,6 @@ $dataBinded=array(
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
 
-header('Location:adminpanel.php');
+$msg = 'Projet bien ajouté.';
+header('Location:adminpanel.php?msg='.$msg);
 ?>

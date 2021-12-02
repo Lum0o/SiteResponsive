@@ -20,5 +20,6 @@ $dataBinded=array(
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
 
-header('Location:adminpanel.php');
+$msg = 'Concepteur bien ajouté.';
+header('Location:adminpanel.php?msg='.$msg);
 ?>

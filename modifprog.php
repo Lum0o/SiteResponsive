@@ -38,6 +38,6 @@ if(!empty($_POST['header'])){
   $pre = $pdo->prepare($sql);
   $pre->execute($dataBinded);
 }
-
-header('Location:adminpanel.php');//on le redirige sur la page d'accueil du site !
+$msg = 'Concepteur bien modifié.';
+header('Location:adminpanel.php?msg='.$msg);//on le redirige sur la page d'accueil du site !
 ?>

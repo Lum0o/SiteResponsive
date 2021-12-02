@@ -39,5 +39,6 @@ if(!empty($_POST['titre'])){
   $pre->execute($dataBinded);
 }
 
-header('Location:adminpanel.php');//on le redirige sur la page d'accueil du site !
+$msg = 'Carrousel bien modifié.';
+header('Location:adminpanel.php?msg='.$msg);//on le redirige sur la page d'accueil du site !
 ?>

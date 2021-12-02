@@ -4,5 +4,6 @@ $id=$_GET['id'];
 $sql = "DELETE FROM concepteurs WHERE id = $id";
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
-header('Location:adminpanel.php');//on le redirige sur la page d'accueil du site !
+$msg = 'concepteur bien supprimé.';
+header('Location:adminpanel.php?msg='.$msg);//on le redirige sur la page d'accueil du site !
 ?>

@@ -41,5 +41,6 @@ if(!empty($_POST['admin'])){
   $pre->execute($dataBinded);
 }
 
-header('Location:adminpanel.php');//on le redirige sur la page d'accueil du site !
+$msg = 'User bien modifié.';
+header('Location:adminpanel.php?msg='.$msg);//on le redirige sur la page d'accueil du site !
 ?>
